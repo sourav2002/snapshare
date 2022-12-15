@@ -64,9 +64,9 @@ const CreatePin = ({ user }) => {
       client.create(doc).then(() => {
         navigate('/');
       });
-    } else {
+    } 
+    else {
       setFields(true);
-
       setTimeout(
         () => {
           setFields(false);

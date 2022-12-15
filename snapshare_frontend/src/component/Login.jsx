@@ -1,7 +1,5 @@
 import React from "react";
 import { GoogleLogin } from 'react-google-login';
-// import { useEffect } from "react";
-import { gapi } from 'gapi-script';
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import shareVideo from "../assets/share.mp4";
@@ -37,10 +35,8 @@ const Login = () => {
       console.log("creating dataset in sanity");
       // after successfully saving the user data, redirect to main home page.
       navigate('/', { replace: true });
-      console.log("navitage successfully");
-    }).then( console.log("error caught "));
-
-    console.log("end of onsuccess method");
+      console.log("navitage from login to home page successfully");
+    });
   };
 
   const responseGoogleFail = (err) =>{

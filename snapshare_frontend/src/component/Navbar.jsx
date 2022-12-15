@@ -9,7 +9,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
   const navigate = useNavigate();
     return (
       <div className="flex gap-2 md:gap-5 w-full mt-5 pb-7 ">
-        <div className="flex justify-start items-center w-full px-2 rounded-md bg-white border-none outline-none focus-within:shadow-sm">
+        <div className="flex justify-start items-center w-full px-2 rounded-md bg-white border-none outline-none focus-within:shadow-2xl">
           {/* show search logo */}
           <IoMdSearch fontSize={21} className="ml-1" />
           {/* search input field */}
@@ -23,9 +23,9 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
           />
         </div>
         {/* User profile image  */}
-        <div className="flex gap-3 ">
+        <div className="flex gap-8 w-1/3 justify-end">
           <Link to={`user-profile/${user?._id}`} className="hidden md:block">
-            <img src={user?.image} referrerPolicy="no-referrer" alt="user-pic" className="w-14 h-12 rounded-lg " />
+            <img src={user?.image} referrerPolicy="no-referrer" alt="user-pic" className="w-14 h-12 rounded-lg shadow-2xl p-1 bg-gray-200" />
           </Link>
 
           {/* create pin plus button  */}

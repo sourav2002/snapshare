@@ -7,7 +7,7 @@ import { Sidebar, UserProfile } from '../component';
 import { userQuery } from '../utils/data';
 import { client } from '../client';
 import Pins from './Pins';
-import logo from '../assets/logo.png';
+import logo from '../assets/snapsharelightmode.svg';
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -22,7 +22,7 @@ const Home = () => {
     client.fetch(query).then((data) => {
       setUser(data[0]);
     });
-  }, []);
+  }, [userInfo?.googleId]);
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0);
@@ -30,9 +30,12 @@ const Home = () => {
 
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
+      {/* sidebar will ramain hidden until the size of screen is not graeater than or equal to mid */}
       <div className="hidden md:flex h-screen flex-initial">
         <Sidebar user={user && user} />
       </div>
+
+
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
           <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} />
@@ -44,7 +47,7 @@ const Home = () => {
           </Link>
         </div>
         {toggleSidebar && (
-        <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
+        <div className="fixed w-3/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
           <div className="absolute w-full flex justify-end items-center p-2">
             <AiFillCloseCircle fontSize={30} className="cursor-pointer" onClick={() => setToggleSidebar(false)} />
           </div>

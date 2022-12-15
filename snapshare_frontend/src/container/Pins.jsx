@@ -16,12 +16,14 @@ const Pins = ({ user }) => {
           <Route path="/" element={<Feed />} />
           <Route path="/category/:categoryId" element={<Feed />} />
           <Route path="/pin-detail/:pinId" element={<PinDetail user={user && user} />} />
-          <Route path="/create-pin" element={<CreatePin user={user && user} />} />
+          <Route path="/create-pin" element={<CreatePin user={user && user} key={Math.random()} />} />
           <Route path="/search" element={<Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />} />
         </Routes>
       </div>
     </div>
   );
 };
+
+// no need to pass id of category or pin as a props, because we can get it using useParam()
 
 export default Pins;
